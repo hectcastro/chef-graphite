@@ -11,17 +11,15 @@ python_pip "graphite-web" do
   action :install
 end
 
-template "/etc/apache2/sites-available/graphite" do
-  mode "0644"
-  source "graphite.conf.erb"
-  notifies :restart, "service[apache2]"
-end
-
 apache_site "000-default" do
   enable false
 end
 
-apache_site "graphite"
+web_app "graphite" do
+  template "graphite.conf.erb"
+  docroot "/opt/graphite/webapp"
+  server_name "graphite"
+end
 
 directory "/opt/graphite/storage/log" do
   owner node["graphite"]["user"]
