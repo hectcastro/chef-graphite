@@ -1,17 +1,12 @@
-description	"Carbon server"
+description "Carbon"
 author "Chef"
 
-start on filesystem or runlevel [2345]
+start on runlevel [2345]
 stop on runlevel [!2345]
 
-umask 022
-expect daemon
 respawn
+expect daemon
 
-pre-start script
-    test -d /opt/graphite || { stop; exit 0; }
-end script
+exec start-stop-daemon --start --oknodo --chdir /opt/graphite --user <%= @user %> --chuid <%= @user %> --pidfile /opt/graphite/storage/carbon-cache-a.pid --name carbon-cache --startas /opt/graphite/bin/carbon-cache.py -- start
 
-chdir /opt/graphite
-
-exec start-stop-daemon --oknodo --chdir /opt/graphite --user <%= @user %> --chuid <%= @user %> --pidfile /opt/graphite/storage/carbon-cache-a.pid --name carbon-cache --startas /opt/graphite/bin/carbon-cache.py --start start
+emits carbon-cache-running
