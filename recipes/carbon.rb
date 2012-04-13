@@ -44,6 +44,14 @@ template "/etc/init/carbon-cache.conf" do
   variables(:user => node["graphite"]["user"])
 end
 
+logrotate_app "carbon" do
+  cookbook "logrotate"
+  path "/opt/graphite/storage/log/carbon-cache-a/*.log"
+  frequency "daily"
+  rotate 7
+  create "644 root root"
+end
+
 service "carbon-cache" do
   provider Chef::Provider::Service::Upstart
   action [ :enable, :start ]

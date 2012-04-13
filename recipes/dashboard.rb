@@ -41,3 +41,11 @@ cookbook_file "/opt/graphite/storage/graphite.db" do
   group node["graphite"]["group"]
   action :create_if_missing
 end
+
+logrotate_app "dashboard" do
+  cookbook "logrotate"
+  path "/opt/graphite/storage/log/webapp/*.log"
+  frequency "daily"
+  rotate 7
+  create "644 root root"
+end

@@ -13,6 +13,7 @@ and [Infochimps](https://github.com/infochimps-labs/ironfan-pantry/blob/master/c
 ## Cookbooks ##
 
 * apache2
+* logrotate
 * python
 
 # Attributes #
