@@ -21,24 +21,21 @@ web_app "graphite" do
   server_name "graphite"
 end
 
-directory "/opt/graphite/storage/log" do
-  owner node["graphite"]["user"]
-  group node["graphite"]["group"]
+[ "log", "whisper" ].each do |dir|
+  directory "/opt/graphite/storage/#{dir}" do
+    owner node["apache"]["user"]
+    group node["apache"]["group"]
+  end
 end
 
 directory "/opt/graphite/storage/log/webapp" do
-  owner node["graphite"]["user"]
-  group node["graphite"]["group"]
-end
-
-directory "/opt/graphite/storage/whisper" do
-  owner node["graphite"]["user"]
-  group node["graphite"]["group"]
+  owner node["apache"]["user"]
+  group node["apache"]["group"]
 end
 
 cookbook_file "/opt/graphite/storage/graphite.db" do
-  owner node["graphite"]["user"]
-  group node["graphite"]["group"]
+  owner node["apache"]["user"]
+  group node["apache"]["group"]
   action :create_if_missing
 end
 

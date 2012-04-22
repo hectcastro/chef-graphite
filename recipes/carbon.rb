@@ -6,8 +6,8 @@ end
 template "/opt/graphite/conf/carbon.conf" do
   mode "0644"
   source "carbon.conf.erb"
-  owner node["graphite"]["user"]
-  group node["graphite"]["group"]
+  owner node["apache"]["user"]
+  group node["apache"]["group"]
   variables(
     :line_receiver_interface    => node["graphite"]["carbon"]["line_receiver_interface"],
     :pickle_receiver_interface  => node["graphite"]["carbon"]["pickle_receiver_interface"],
@@ -19,12 +19,12 @@ end
 template "/opt/graphite/conf/storage-schemas.conf" do
   mode "0644"
   source "storage-schemas.conf.erb"
-  owner node["graphite"]["user"]
-  group node["graphite"]["group"]
+  owner node["apache"]["user"]
+  group node["apache"]["group"]
 end
 
 execute "chown" do
-  command "chown -R #{node["graphite"]["user"]}:#{node["graphite"]["group"]} /opt/graphite/storage"
+  command "chown -R #{node["apache"]["user"]}:#{node["apache"]["group"]} /opt/graphite/storage"
   only_if do
     f = File.stat("/opt/graphite/storage")
     f.uid == 0 && f.gid == 0
@@ -33,15 +33,15 @@ end
 
 cookbook_file "/opt/graphite/storage/graphite.db" do
   mode "0644"
-  owner node["graphite"]["user"]
-  group node["graphite"]["group"]
+  owner node["apache"]["user"]
+  group node["apache"]["group"]
   action :create_if_missing
 end
 
 template "/etc/init/carbon-cache.conf" do
   mode "0644"
   source "carbon-cache.conf.erb"
-  variables(:user => node["graphite"]["user"])
+  variables(:user => node["apache"]["user"])
 end
 
 logrotate_app "carbon" do
