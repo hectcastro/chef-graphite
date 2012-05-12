@@ -11,6 +11,18 @@ python_pip "graphite-web" do
   action :install
 end
 
+template "/opt/graphite/webapp/graphite/local_settings.py" do
+  mode "0644"
+  source "local_settings.py.erb"
+  owner node["apache"]["user"]
+  group node["apache"]["group"]
+  variables(
+    :timezone       => node["graphite"]["dashboard"]["timezone"],
+    :memcache_hosts => node["graphite"]["dashboard"]["memcache_hosts"]
+  )
+  notifies :restart, "service[apache2]"
+end
+
 apache_site "000-default" do
   enable false
 end
