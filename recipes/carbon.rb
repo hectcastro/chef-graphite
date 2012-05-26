@@ -31,13 +31,6 @@ execute "chown" do
   end
 end
 
-cookbook_file "/opt/graphite/storage/graphite.db" do
-  mode "0644"
-  owner node["apache"]["user"]
-  group node["apache"]["group"]
-  action :create_if_missing
-end
-
 template "/etc/init/carbon-cache.conf" do
   mode "0644"
   source "carbon-cache.conf.erb"
