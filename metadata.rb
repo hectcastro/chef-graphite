@@ -8,7 +8,7 @@ recipe            "graphite::carbon", "Installs and configures Carbon"
 recipe            "graphite::dashboard", "Installs and configures the Graphite dashboard"
 recipe            "graphite::whisper", "Installs and configures Whisper"
 
-%w{ apache2 logrotate python}.each do |d|
+%w{ apache2 logrotate python }.each do |d|
   depends d
 end
 
