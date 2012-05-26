@@ -9,6 +9,7 @@ and [Infochimps](https://github.com/infochimps-labs/ironfan-pantry/blob/master/c
 ## Platforms ##
 
 * Ubuntu 11.10 (Oneiric)
+* Ubuntu 12.04 (Precise)
 
 ## Cookbooks ##
 
