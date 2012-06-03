@@ -1,23 +1,25 @@
-# Description #
+# graphite [![Build Status](https://secure.travis-ci.org/hectcastro/chef-graphite.png?branch=master)](http://travis-ci.org/hectcastro/chef-graphite)
+
+## Description
 
 Installs and configures Graphite.  Much of the work in this cookbook reflects
 work done by [Heavy Water Software](https://github.com/heavywater/chef-graphite)
 and [Infochimps](https://github.com/infochimps-labs/ironfan-pantry/blob/master/cookbooks/graphite).
 
-# Requirements #
+## Requirements
 
-## Platforms ##
+### Platforms
 
 * Ubuntu 11.10 (Oneiric)
 * Ubuntu 12.04 (Precise)
 
-## Cookbooks ##
+### Cookbooks
 
 * apache2
 * logrotate
 * python
 
-# Attributes #
+## Attributes
 
 * `node["graphite"]["version"]` - Version of Graphite to install.
 * `node["graphite"]["user"]` - User for Graphite and its components.
@@ -32,14 +34,14 @@ and [Infochimps](https://github.com/infochimps-labs/ironfan-pantry/blob/master/c
 * `node["graphite"]["dashboard"]["memcache_hosts"]` - Array of IP and port pairs
   for memcached.
 
-# Recipes #
+## Recipes
 
 * `recipe[graphite]` will install Graphite and all of its components.
 * `recipe[graphite::carbon]` will install Carbon.
 * `recipe[graphite::dashboard]` will install Graphite's dashboard.
 * `recipe[graphite::whisper]` will install Whisper.
 
-# Usage #
+## Usage
 
 Graphite's credentials default to username `root` and password `root` with an
 e-mail address going no where.  Also, two schemas are provided by default:
