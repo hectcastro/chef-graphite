@@ -11,6 +11,14 @@ python_pip "graphite-web" do
   action :install
 end
 
+template "/opt/graphite/conf/graphTemplates.conf" do
+  mode "0644"
+  source "graphTemplates.conf.erb"
+  owner node["apache"]["user"]
+  group node["apache"]["group"]
+  notifies :restart, "service[apache2]"
+end
+
 template "/opt/graphite/webapp/graphite/local_settings.py" do
   mode "0644"
   source "local_settings.py.erb"
@@ -22,6 +30,8 @@ template "/opt/graphite/webapp/graphite/local_settings.py" do
   )
   notifies :restart, "service[apache2]"
 end
+
+
 
 apache_site "000-default" do
   enable false

@@ -33,6 +33,19 @@ and [Infochimps](https://github.com/infochimps-labs/ironfan-pantry/blob/master/c
 * `node["graphite"]["dashboard"]["timezone"]` - Default dashboard timezone.
 * `node["graphite"]["dashboard"]["memcache_hosts"]` - Array of IP and port pairs
   for memcached.
+* `node["graphite"]["templates"]` - Array of template definitions. 
+
+### Sample Template Definition
+
+* `default["graphite"]["templates"]["default"]["background"]`   = "black"
+* `default["graphite"]["templates"]["default"]["foreground"]`   = "white"
+* `default["graphite"]["templates"]["default"]["majorLine"]`    = "white"
+* `default["graphite"]["templates"]["default"]["minorLine"]`    = "grey"
+* `default["graphite"]["templates"]["default"]["lineColors"]`   = "blue,green,red,purple,brown,yellow,aqua,grey,magenta,pink,gold,rose"
+* `default["graphite"]["templates"]["default"]["fontName"]`     = "Sans"
+* `default["graphite"]["templates"]["default"]["fontSize"]`     = "10"
+* `default["graphite"]["templates"]["default"]["fontBold"]`     = "False"
+* `default["graphite"]["templates"]["default"]["fontItalic"]`   = "False"
 
 ## Recipes
 
