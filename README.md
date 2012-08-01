@@ -33,9 +33,9 @@ and [Infochimps](https://github.com/infochimps-labs/ironfan-pantry/blob/master/c
 * `node["graphite"]["dashboard"]["timezone"]` - Default dashboard timezone.
 * `node["graphite"]["dashboard"]["memcache_hosts"]` - Array of IP and port pairs
   for memcached.
-* `node["graphite"]["templates"]` - Array of template definitions. 
+* `node["graphite"]["templates"]` - Additional template defintions
 
-### Sample Template Definition
+### Default Template Definition
 
 * `default["graphite"]["templates"]["default"]["background"]`   = "black"
 * `default["graphite"]["templates"]["default"]["foreground"]`   = "white"

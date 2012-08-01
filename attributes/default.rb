@@ -5,7 +5,7 @@ default["graphite"]["carbon"]["cache_query_interface"]      = "127.0.0.1"
 default["graphite"]["dashboard"]["timezone"]                = "America/New_York"
 default["graphite"]["dashboard"]["memcache_hosts"]          = [ "127.0.0.1:11211" ]
 
-# The default values
+# The default values template
 default["graphite"]["templates"]["default"]["background"]   = "black"
 default["graphite"]["templates"]["default"]["foreground"]   = "white"
 default["graphite"]["templates"]["default"]["majorLine"]    = "white"
