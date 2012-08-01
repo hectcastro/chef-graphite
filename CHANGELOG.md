@@ -1,3 +1,7 @@
+## v0.0.9
+
+* Added graph template configuration support.
+
 ## v0.0.8
 
 * Added Graphite `0.9.10` support.
