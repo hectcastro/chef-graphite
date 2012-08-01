@@ -1,0 +1,14 @@
+
+<% @node["graphite"]["templates"].each do |template_name, template_values| %>
+[<%= template_name %>]
+<% if template_values.has_key?("background")  %>background = <%=  template_values["background"] %><% end %>
+<% if template_values.has_key?("foreground")  %>foreground = <%=  template_values["foreground"] %><% end %>
+<% if template_values.has_key?("majorLine")  %>majorLine = <%=  template_values["majorLine"] %><% end %>
+<% if template_values.has_key?("minorLine")  %>minorLine = <%=  template_values["minorLine"] %><% end %>
+<% if template_values.has_key?("lineColors")  %>lineColors = <%=  template_values["lineColors"] %><% end %>
+<% if template_values.has_key?("fontName")  %>fontName = <%=  template_values["fontName"] %><% end %>
+<% if template_values.has_key?("fontSize")  %>fontSize = <%=  template_values["fontSize"] %><% end %>
+<% if template_values.has_key?("fontBold")  %>fontBold = <%=  template_values["fontBold"] %><% end %>
+<% if template_values.has_key?("fontItalic")  %>fontItalic = <%=  template_values["fontItalic"] %><% end %>
+
+<% end %>
