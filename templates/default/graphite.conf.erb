@@ -4,6 +4,10 @@
   ErrorLog /opt/graphite/storage/log/webapp/error.log
   CustomLog /opt/graphite/storage/log/webapp/access.log common
 
+  Header set Access-Control-Allow-Origin "*"
+  Header set Access-Control-Allow-Methods "GET, OPTIONS"
+  Header set Access-Control-Allow-Headers "origin, authorization, accept"
+
   <Location "/">
     SetHandler python-program
     PythonPath "['/opt/graphite/webapp'] + sys.path"
