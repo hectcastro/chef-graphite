@@ -1,3 +1,7 @@
+## v0.0.10
+
+* Added CORS support to Graphite Apache configuration.
+
 ## v0.0.9
 
 * Added graph template configuration support.
