@@ -39,7 +39,7 @@ end
 
 logrotate_app "carbon" do
   cookbook "logrotate"
-  path "/opt/graphite/storage/log/carbon-cache-a/*.log"
+  path "/opt/graphite/storage/log/carbon-cache/carbon-cache-a/*.log"
   frequency "daily"
   rotate 7
   create "644 root root"
