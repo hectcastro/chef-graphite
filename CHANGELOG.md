@@ -1,3 +1,7 @@
+## v0.0.12
+
+* Added support for templating storage-aggregation.conf.
+
 ## v0.0.11
 
 * Fixed a bug with the Carbon logrotate directive.
