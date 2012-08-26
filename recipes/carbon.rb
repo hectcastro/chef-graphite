@@ -21,6 +21,15 @@ template "/opt/graphite/conf/storage-schemas.conf" do
   source "storage-schemas.conf.erb"
   owner node["apache"]["user"]
   group node["apache"]["group"]
+  notifies :restart, "service[carbon-cache]"
+end
+
+template "/opt/graphite/conf/storage-aggregation.conf" do
+  mode "0644"
+  source "storage-aggregation.conf.erb"
+  owner node["apache"]["user"]
+  group node["apache"]["group"]
+  notifies :restart, "service[carbon-cache]"
 end
 
 execute "chown" do
