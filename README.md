@@ -30,6 +30,7 @@ and [Infochimps](https://github.com/infochimps-labs/ironfan-pantry/blob/master/c
   receiver to bind to.
 * `node["graphite"]["carbon"]["cache_query_interface"]` - IP for the query
   cache to bind to.
+* `node["graphite"]["carbon"]["log_updates"]` - Enable/disable Carbon logging.
 * `node["graphite"]["dashboard"]["timezone"]` - Default dashboard timezone.
 * `node["graphite"]["dashboard"]["memcache_hosts"]` - Array of IP and port pairs
   for memcached.

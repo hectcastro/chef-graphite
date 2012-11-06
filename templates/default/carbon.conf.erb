@@ -10,4 +10,4 @@ PICKLE_RECEIVER_INTERFACE = <%= @pickle_receiver_interface %>
 PICKLE_RECEIVER_PORT = 2004
 CACHE_QUERY_INTERFACE = <%= @cache_query_interface %>
 CACHE_QUERY_PORT = 7002
-LOG_UPDATES = True
+LOG_UPDATES = <%= @log_updates ? "True" : "False" %>
