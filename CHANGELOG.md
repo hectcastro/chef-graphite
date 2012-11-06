@@ -1,3 +1,7 @@
+## v0.0.13
+
+* Added support for templating Carbon log updates.
+
 ## v0.0.12
 
 * Added support for templating storage-aggregation.conf.
