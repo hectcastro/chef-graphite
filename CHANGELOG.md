@@ -1,3 +1,7 @@
+## v0.0.14
+
+* Fixed Django missing database definition error.
+
 ## v0.0.13
 
 * Added support for templating Carbon log updates.
