@@ -1,19 +1,4 @@
-[min]
-pattern = \.min$
-xFilesFactor = 0.1
-aggregationMethod = min
 
-[max]
-pattern = \.max$
-xFilesFactor = 0.1
-aggregationMethod = max
-
-[sum]
-pattern = \.count$
-xFilesFactor = 0
-aggregationMethod = sum
-
-[default_average]
-pattern = .*
-xFilesFactor = 0.3
-aggregationMethod = average
+<% unless node['graphite']['storage_aggregation'].empty? -%>
+  <%= GraphiteConf.section_to_str(node['graphite']['storage_aggregation']) %>
+<% end -%>

@@ -1,9 +1,4 @@
-[stats]
-priority = 100
-pattern = ^stats\..*
-retentions = 10:2160,60:10080,600:262974
 
-[catchall]
-priority = 0
-pattern = ^.*
-retentions = 60:565920
+<% unless node['graphite']['storage_schemas'].empty? -%>
+  <%= GraphiteConf.section_to_str(node['graphite']['storage_schemas']) %>
+<% end -%>
