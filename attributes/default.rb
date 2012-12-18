@@ -36,7 +36,7 @@ default["graphite"]["storage_schemas"] = [
     ]
 
 #Storage Aggregation
-default[:graphite][:storage_aggregation] = [
+default["graphite"]["storage_aggregation"] = [
       {
         :min => {
           :pattern=> "\.min$",
