@@ -1,5 +1,3 @@
-require 'rubygems'
-
 class Erubis::RubyEvaluator::GraphiteConf
 
   private

@@ -19,53 +19,53 @@ default["graphite"]["templates"]["default"]["fontItalic"]   = "False"
 
 #Storage Schemas
 default["graphite"]["storage_schemas"] = [
-      {
-        :stats => {
-          :priority => "100",
-          :pattern => "^stats.*",
-          :retentions => "10s:7d,1m:31d,10m:5y"
-        }
-      },
-      {
-        :catchall => {
-          :priority=> "0",
-          :pattern => "^.*",
-          :retentions => "60s:5y"
-        }
-      }
-    ]
+  {
+    :stats => {
+      :priority   => "100",
+      :pattern    => "^stats\..*",
+      :retentions => "10s:7d,1m:31d,10m:5y"
+    }
+  },
+  {
+    :catchall => {
+      :priority   => "0",
+      :pattern    => "^.*",
+      :retentions => "60s:5y"
+    }
+  }
+]
 
 #Storage Aggregation
 default["graphite"]["storage_aggregation"] = [
-      {
-        :min => {
-          :pattern=> "\.min$",
-          :xFilesFactor => "0",
-          :aggregationMethod => "min"
-        }
-      },
-      {
-        :max => {
-          :pattern=> "\.max$",
-          :xFilesFactor => "0",
-          :aggregationMethod => "max"
-        }
-      },
-      {
-        :sum => {
-          :pattern=> "\.count$",
-          :xFilesFactor => "0",
-          :aggregationMethod => "sum"
-        }
-      },
-      {
-        :default_average => {
-          :pattern=> ".*",
-          :xFilesFactor => "0",
-          :aggregationMethod => "avg"
-        }
-      }
-    ]
+  {
+    :min => {
+      :pattern            => "\.min$",
+      :xFilesFactor       => "0.1",
+      :aggregationMethod  => "min"
+    }
+  },
+  {
+    :max => {
+      :pattern            => "\.max$",
+      :xFilesFactor       => "0.1",
+      :aggregationMethod  => "max"
+    }
+  },
+  {
+    :sum => {
+      :pattern            => "\.count$",
+      :xFilesFactor       => "0",
+      :aggregationMethod  => "sum"
+    }
+  },
+  {
+    :default_average => {
+      :pattern            => ".*",
+      :xFilesFactor       => "0.3",
+      :aggregationMethod  => "average"
+    }
+  }
+]
 
 
 
