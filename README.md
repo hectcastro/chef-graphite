@@ -35,6 +35,10 @@ and [Infochimps](https://github.com/infochimps-labs/ironfan-pantry/blob/master/c
 * `node["graphite"]["dashboard"]["memcache_hosts"]` - Array of IP and port pairs
   for memcached.
 * `node["graphite"]["templates"]` - Additional template defintions
+* `node["graphite"]["storage_schemas"]` - Array of hashes that define a storage
+  schema.  See default attributes for an example.
+* `node["graphite"]["storage_aggregation"]` – Array of hashes that define
+  storage aggregation.  See default attributes for an example.
 
 ### Default Template Definition
 
