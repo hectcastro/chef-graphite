@@ -1,3 +1,7 @@
+## v0.0.15
+
+* Added attribute driven storage schema and storage aggregation templates.
+
 ## v0.0.14
 
 * Fixed Django missing database definition error.
