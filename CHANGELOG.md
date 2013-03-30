@@ -1,3 +1,7 @@
+## v0.0.16
+
+* Fixed a bug in storage aggregation matching matterns.
+
 ## v0.0.15
 
 * Added attribute driven storage schema and storage aggregation templates.
