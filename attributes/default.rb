@@ -22,7 +22,7 @@ default["graphite"]["storage_schemas"] = [
   {
     :stats => {
       :priority   => "100",
-      :pattern    => "^stats\..*",
+      :pattern    => "^stats\\..*",
       :retentions => "10s:7d,1m:31d,10m:5y"
     }
   },
@@ -39,21 +39,21 @@ default["graphite"]["storage_schemas"] = [
 default["graphite"]["storage_aggregation"] = [
   {
     :min => {
-      :pattern            => "\.min$",
+      :pattern            => "\\.min$",
       :xFilesFactor       => "0.1",
       :aggregationMethod  => "min"
     }
   },
   {
     :max => {
-      :pattern            => "\.max$",
+      :pattern            => "\\.max$",
       :xFilesFactor       => "0.1",
       :aggregationMethod  => "max"
     }
   },
   {
     :sum => {
-      :pattern            => "\.count$",
+      :pattern            => "\\.count$",
       :xFilesFactor       => "0",
       :aggregationMethod  => "sum"
     }
