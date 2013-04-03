@@ -14,10 +14,11 @@ end
 
 python_pip "graphite-web" do
   version node["graphite"]["version"]
+  options %Q{--install-option="--prefix=#{node['graphite']['home']}" --install-option="--install-lib=#{node['graphite']['home']}/webapp"}
   action :install
 end
 
-template "/opt/graphite/conf/graphTemplates.conf" do
+template "#{node['graphite']['home']}/conf/graphTemplates.conf" do
   mode "0644"
   source "graphTemplates.conf.erb"
   owner node["apache"]["user"]
@@ -25,12 +26,13 @@ template "/opt/graphite/conf/graphTemplates.conf" do
   notifies :restart, "service[apache2]"
 end
 
-template "/opt/graphite/webapp/graphite/local_settings.py" do
+template "#{node['graphite']['home']}/webapp/graphite/local_settings.py" do
   mode "0644"
   source "local_settings.py.erb"
   owner node["apache"]["user"]
   group node["apache"]["group"]
   variables(
+    :home           => node["graphite"]["home"],
     :timezone       => node["graphite"]["dashboard"]["timezone"],
     :memcache_hosts => node["graphite"]["dashboard"]["memcache_hosts"]
   )
@@ -43,23 +45,24 @@ end
 
 web_app "graphite" do
   template "graphite.conf.erb"
-  docroot "/opt/graphite/webapp"
+  docroot "#{node['graphite']['home']}/webapp"
   server_name "graphite"
+  graphite_home node["graphite"]["home"]
 end
 
 [ "log", "whisper" ].each do |dir|
-  directory "/opt/graphite/storage/#{dir}" do
+  directory "#{node['graphite']['home']}/storage/#{dir}" do
     owner node["apache"]["user"]
     group node["apache"]["group"]
   end
 end
 
-directory "/opt/graphite/storage/log/webapp" do
+directory "#{node['graphite']['home']}/storage/log/webapp" do
   owner node["apache"]["user"]
   group node["apache"]["group"]
 end
 
-cookbook_file "/opt/graphite/storage/graphite.db" do
+cookbook_file "#{node['graphite']['home']}/storage/graphite.db" do
   owner node["apache"]["user"]
   group node["apache"]["group"]
   action :create_if_missing
@@ -67,7 +70,7 @@ end
 
 logrotate_app "dashboard" do
   cookbook "logrotate"
-  path "/opt/graphite/storage/log/webapp/*.log"
+  path "#{node['graphite']['home']}/storage/log/webapp/*.log"
   frequency "daily"
   rotate 7
   create "644 root root"
