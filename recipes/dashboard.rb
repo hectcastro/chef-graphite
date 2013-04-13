@@ -1,6 +1,11 @@
 include_recipe "apache2::mod_python"
 
-[ "python-cairo-dev", "python-django", "python-django-tagging", "python-memcache", "python-rrdtool" ].each do |graphite_package|
+packages = value_for_platform_family(
+  [ "debian" ] => [ "python-cairo-dev", "python-django", "python-django-tagging", "python-memcache", "python-rrdtool" ],
+  [ "fedora", "rhel" ] => [ "bitmap", "bitmap-fonts", "Django", "django-tagging", "pycairo", "python-memcached", "rrdtool-python" ]
+)
+
+packages.each do |graphite_package|
   package graphite_package do
     action :install
   end

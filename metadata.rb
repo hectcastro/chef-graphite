@@ -13,6 +13,6 @@ recipe            "graphite::whisper", "Installs and configures Whisper"
   depends d
 end
 
-%w{ ubuntu }.each do |os|
+%w{ centos redhat ubuntu }.each do |os|
     supports os
 end
