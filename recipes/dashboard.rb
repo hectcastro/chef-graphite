@@ -1,3 +1,4 @@
+include_recipe "apache2"
 include_recipe "apache2::mod_python"
 
 packages = value_for_platform_family(
@@ -35,8 +36,6 @@ template "/opt/graphite/webapp/graphite/local_settings.py" do
   )
   notifies :restart, "service[apache2]"
 end
-
-
 
 apache_site "000-default" do
   enable false
