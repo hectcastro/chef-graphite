@@ -1,10 +1,18 @@
 include_recipe "apache2"
 include_recipe "apache2::mod_python"
 
-packages = value_for_platform_family(
-  [ "debian" ] => [ "python-cairo-dev", "python-django", "python-django-tagging", "python-memcache", "python-rrdtool" ],
-  [ "fedora", "rhel" ] => [ "bitmap", "bitmap-fonts", "Django", "django-tagging", "pycairo", "python-memcached", "rrdtool-python" ]
-)
+if platform_family?("debian")
+  packages = [ "python-cairo-dev", "python-django", "python-django-tagging", "python-memcache", "python-rrdtool" ]
+elsif platform_family?("fedora", "rhel")
+  if platform?("amazon")
+    # bitmap-fonts not available
+    packages = [ "bitmap", "Django", "django-tagging", "pycairo", "python-memcached", "rrdtool-python" ]
+  else
+    packages = [ "bitmap", "bitmap-fonts", "Django", "django-tagging", "pycairo", "python-memcached", "rrdtool-python" ]
+  end
+else
+  packages = [ "python-cairo-dev", "python-django", "python-django-tagging", "python-memcache", "python-rrdtool" ]
+end
 
 packages.each do |graphite_package|
   package graphite_package do
