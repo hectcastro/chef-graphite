@@ -25,7 +25,7 @@ describe_recipe "graphite::dashboard" do
     end
 
     it "creates the whisper storage directory" do
-      directory("#{node['graphite']['home']}/storage/whisper/").must_exist
+      directory(node['graphite']['whisper_dir']).must_exist
     end
 
     it "creates the webapp log storage directory" do
