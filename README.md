@@ -24,6 +24,7 @@ and [Infochimps](https://github.com/infochimps-labs/ironfan-pantry/blob/master/c
 ## Attributes
 
 * `node["graphite"]["version"]` - Version of Graphite to install.
+* `node["graphite"]["home"]` - Prefix install directory for Graphite.
 * `node["graphite"]["user"]` - User for Graphite and its components.
 * `node["graphite"]["group"]` - Group for Graphite and its components.
 * `node["graphite"]["carbon"]["line_receiver_interface"]` - IP for the line

@@ -4,6 +4,11 @@ python_pip "carbon" do
   action :install
 end
 
+python_pip "zope.interface" do
+  action :install
+  only_if { platform_family?("rhel") }
+end
+
 template "#{node['graphite']['home']}/conf/carbon.conf" do
   mode "0644"
   source "carbon.conf.erb"
@@ -48,7 +53,7 @@ template "/etc/init/carbon-cache.conf" do
   source "carbon-cache.conf.erb"
   variables(
     :home => node["graphite"]["home"],
-    :user => node["apache"]["user"]
+    :version => node["graphite"]["version"]
   )
 end
 
