@@ -4,12 +4,12 @@ include_recipe "apache2::mod_python"
 if platform_family?("debian")
   packages = [ "python-cairo-dev", "python-django", "python-django-tagging", "python-memcache", "python-rrdtool" ]
 elsif platform_family?("fedora", "rhel")
-  if platform?("amazon")
-    # bitmap-fonts not available
-    packages = [ "bitmap", "Django", "django-tagging", "pycairo", "python-memcached", "rrdtool-python" ]
-  else
-    packages = [ "bitmap", "bitmap-fonts", "Django", "django-tagging", "pycairo", "python-memcached", "rrdtool-python" ]
-  end
+  include_recipe "build-essential"
+
+  packages = [ "bitmap", "bitmap-fonts", "Django", "django-tagging", "pycairo", "python-memcached", "rrdtool-python" ]
+
+  # bitmap-fonts not available
+  packages.reject! { |pkg| pkg == "bitmap-fonts" } if platform?("amazon")
 else
   packages = [ "python-cairo-dev", "python-django", "python-django-tagging", "python-memcache", "python-rrdtool" ]
 end

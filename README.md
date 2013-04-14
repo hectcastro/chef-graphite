@@ -10,6 +10,7 @@ and [Infochimps](https://github.com/infochimps-labs/ironfan-pantry/blob/master/c
 
 ### Platforms
 
+* Amazon Linux 2013.03
 * CentOS 6
 * Red Hat 6
 * Ubuntu 11.10 (Oneiric)
@@ -18,8 +19,10 @@ and [Infochimps](https://github.com/infochimps-labs/ironfan-pantry/blob/master/c
 ### Cookbooks
 
 * apache2
+* build-essential
 * logrotate
 * python
+* yum
 
 ## Attributes
 
