@@ -63,7 +63,7 @@ MEMCACHE_HOSTS = ['<%= @memcache_hosts.join("', '") %>']
 
 ## Data directories
 # NOTE: If any directory is unreadable in DATA_DIRS it will break metric browsing
-#WHISPER_DIR = '/opt/graphite/storage/whisper'
+WHISPER_DIR = '<%= node['graphite']['carbon']['whisper_dir'] %>'
 #RRD_DIR = '/opt/graphite/storage/rrd'
 #DATA_DIRS = [WHISPER_DIR, RRD_DIR] # Default: set from the above variables
 #LOG_DIR = '/opt/graphite/storage/log/webapp'
