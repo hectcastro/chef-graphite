@@ -1,6 +1,17 @@
+## v0.1.1
+
+* Added support for Amazon Linux.
+
+## v0.1.0
+
+* Added test-kitchen support.
+* Added CentOS and RHEL support.
+* Added custom prefix for Graphite installation.
+* Added custom Whisper data directory.
+
 ## v0.0.16
 
-* Fixed a bug in storage aggregation matching matterns.
+* Fixed a bug in storage aggregation matching patterns.
 
 ## v0.0.15
 

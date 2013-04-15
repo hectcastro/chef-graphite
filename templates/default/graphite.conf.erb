@@ -1,8 +1,8 @@
 <VirtualHost *:80>
   ServerName <%= @params[:server_name] %>
   DocumentRoot <%= @params[:docroot] %>
-  ErrorLog /opt/graphite/storage/log/webapp/error.log
-  CustomLog /opt/graphite/storage/log/webapp/access.log common
+  ErrorLog <%= @params[:graphite_home] %>/storage/log/webapp/error.log
+  CustomLog <%= @params[:graphite_home] %>/storage/log/webapp/access.log common
 
   Header set Access-Control-Allow-Origin "*"
   Header set Access-Control-Allow-Methods "GET, OPTIONS"
@@ -10,7 +10,7 @@
 
   <Location "/">
     SetHandler python-program
-    PythonPath "['/opt/graphite/webapp'] + sys.path"
+    PythonPath "['<%= @params[:graphite_home] %>/webapp'] + sys.path"
     PythonHandler django.core.handlers.modpython
     SetEnv DJANGO_SETTINGS_MODULE graphite.settings
     PythonDebug Off

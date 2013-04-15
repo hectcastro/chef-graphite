@@ -10,6 +10,7 @@ and [Infochimps](https://github.com/infochimps-labs/ironfan-pantry/blob/master/c
 
 ### Platforms
 
+* Amazon Linux 2013.03
 * CentOS 6
 * Red Hat 6
 * Ubuntu 11.10 (Oneiric)
@@ -18,12 +19,15 @@ and [Infochimps](https://github.com/infochimps-labs/ironfan-pantry/blob/master/c
 ### Cookbooks
 
 * apache2
+* build-essential
 * logrotate
 * python
+* yum
 
 ## Attributes
 
 * `node["graphite"]["version"]` - Version of Graphite to install.
+* `node["graphite"]["home"]` - Prefix install directory for Graphite.
 * `node["graphite"]["user"]` - User for Graphite and its components.
 * `node["graphite"]["group"]` - Group for Graphite and its components.
 * `node["graphite"]["carbon"]["line_receiver_interface"]` - IP for the line
@@ -33,6 +37,7 @@ and [Infochimps](https://github.com/infochimps-labs/ironfan-pantry/blob/master/c
 * `node["graphite"]["carbon"]["cache_query_interface"]` - IP for the query
   cache to bind to.
 * `node["graphite"]["carbon"]["log_updates"]` - Enable/disable Carbon logging.
+* `node["graphite"]["carbon"]["whisper_dir"]` - Location of whisper data files.
 * `node["graphite"]["dashboard"]["timezone"]` - Default dashboard timezone.
 * `node["graphite"]["dashboard"]["memcache_hosts"]` - Array of IP and port pairs
   for memcached.

@@ -17,23 +17,23 @@ describe_recipe "graphite::dashboard" do
 
   describe "files" do
     it "creates the configuration file" do
-      file("/opt/graphite/webapp/graphite/local_settings.py").must_exist
+      file("#{node['graphite']['home']}/webapp/graphite/local_settings.py").must_exist
     end
 
     it "creates the log storage directory" do
-      directory("/opt/graphite/storage/log/").must_exist
+      directory("#{node['graphite']['home']}/storage/log/").must_exist
     end
 
     it "creates the whisper storage directory" do
-      directory("/opt/graphite/storage/whisper/").must_exist
+      directory(node['graphite']['whisper_dir']).must_exist
     end
 
     it "creates the webapp log storage directory" do
-      directory("/opt/graphite/storage/log/webapp/").must_exist
+      directory("#{node['graphite']['home']}/storage/log/webapp/").must_exist
     end
 
     it "creates the Graphite user database" do
-      file("/opt/graphite/storage/graphite.db").must_exist
+      file("#{node['graphite']['home']}/storage/graphite.db").must_exist
     end
   end
 

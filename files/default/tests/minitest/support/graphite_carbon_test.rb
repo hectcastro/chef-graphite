@@ -8,11 +8,11 @@ describe_recipe "graphite::carbon" do
 
   describe "files" do
     it "creates the configuration file" do
-      file("/opt/graphite/conf/carbon.conf").must_exist
+      file("#{node['graphite']['home']}/conf/carbon.conf").must_exist
     end
 
     it "creates the storage schema configuration file" do
-      file("/opt/graphite/conf/storage-schemas.conf").must_exist
+      file("#{node['graphite']['home']}/conf/storage-schemas.conf").must_exist
     end
 
     it "creates the Upstart configuration file" do
@@ -20,7 +20,7 @@ describe_recipe "graphite::carbon" do
     end
 
     it "changes the storage directory owner and group" do
-      storage = directory("/opt/graphite/storage/")
+      storage = directory("#{node['graphite']['home']}/storage/")
       storage.must_have(:owner, node["apache"]["user"])
       storage.must_have(:group, node["apache"]["group"])
     end
