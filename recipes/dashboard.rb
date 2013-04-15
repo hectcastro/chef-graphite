@@ -40,6 +40,7 @@ template "#{node['graphite']['home']}/webapp/graphite/local_settings.py" do
   owner node["apache"]["user"]
   group node["apache"]["group"]
   variables(
+    :home           => node["graphite"]["home"],
     :whisper_dir    => node["graphite"]["carbon"]["whisper_dir"],
     :timezone       => node["graphite"]["dashboard"]["timezone"],
     :memcache_hosts => node["graphite"]["dashboard"]["memcache_hosts"]
@@ -58,11 +59,14 @@ web_app "graphite" do
   graphite_home node["graphite"]["home"]
 end
 
-[ "log", "whisper" ].each do |dir|
-  directory "#{node['graphite']['home']}/storage/#{dir}" do
-    owner node["apache"]["user"]
-    group node["apache"]["group"]
-  end
+directory "#{node['graphite']['home']}/storage/log" do
+  owner node["apache"]["user"]
+  group node["apache"]["group"]
+end
+
+directory "#{node['graphite']['carbon']['whisper_dir']}" do
+  owner node["apache"]["user"]
+  group node["apache"]["group"]
 end
 
 directory "#{node['graphite']['home']}/storage/log/webapp" do
