@@ -64,7 +64,7 @@ directory "#{node['graphite']['home']}/storage/log" do
   group node["apache"]["group"]
 end
 
-directory "#{node['graphite']['carbon']['whisper_dir']}" do
+directory node['graphite']['carbon']['whisper_dir'] do
   owner node["apache"]["user"]
   group node["apache"]["group"]
 end
