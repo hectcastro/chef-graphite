@@ -1,3 +1,7 @@
+## v0.1.2
+
+* Fixed bad reference to `whisper_dir` within cookbooks.
+
 ## v0.1.1
 
 * Added support for Amazon Linux.
