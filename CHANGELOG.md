@@ -1,3 +1,7 @@
+## v0.1.1
+
+* Added support for Amazon Linux.
+
 ## v0.1.0
 
 * Added test-kitchen support.
