@@ -1,3 +1,7 @@
+## v0.1.3
+
+* Added zope.interface dependency for Twisted.
+
 ## v0.1.2
 
 * Fixed bad reference to `whisper_dir` within cookbooks.
