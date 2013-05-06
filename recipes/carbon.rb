@@ -6,7 +6,6 @@ end
 
 python_pip "zope.interface" do
   action :install
-  only_if { platform_family?("rhel") }
 end
 
 template "#{node['graphite']['home']}/conf/carbon.conf" do
