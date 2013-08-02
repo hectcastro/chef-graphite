@@ -144,10 +144,11 @@ DATABASES = {
     'default': {
         'NAME': '<%= @home %>/storage/graphite.db',
         'ENGINE': 'django.db.backends.sqlite3',
-        'USER': '',
-        'PASSWORD': '',
-        'HOST': '',
-        'PORT': ''
+        'USER': '<%= @mysql_username %>',
+        'PASSWORD': '<%= @mysql_password %>',
+        'HOST': '<%= @mysql_server %>',
+        'PORT': '<%= @mysql_port %>'
+
     }
 }
 #
