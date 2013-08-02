@@ -5,6 +5,9 @@ default["graphite"]["carbon"]["pickle_receiver_interface"]  = "127.0.0.1"
 default["graphite"]["carbon"]["cache_query_interface"]      = "127.0.0.1"
 default["graphite"]["carbon"]["log_updates"]                = true
 default["graphite"]["carbon"]["whisper_dir"]                = "#{node["graphite"]["home"]}/storage/whisper"
+default["graphite"]["carbon"]["max_cache_size"]             = "inf"
+default["graphite"]["carbon"]["max_creates_per_minute"]     = "inf"
+default["graphite"]["carbon"]["max_updates_per_second"]     = "1000"
 default["graphite"]["dashboard"]["timezone"]                = "America/New_York"
 default["graphite"]["dashboard"]["memcache_hosts"]          = [ "127.0.0.1:11211" ]
 
