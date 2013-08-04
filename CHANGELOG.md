@@ -1,3 +1,8 @@
+## v0.1.4
+
+* Added MySQL configuration attributes for dashboard.
+* Added Carbon update limit attributes.
+
 ## v0.1.3
 
 * Added zope.interface dependency for Twisted.
