@@ -10,6 +10,10 @@ default["graphite"]["carbon"]["max_creates_per_minute"]     = "inf"
 default["graphite"]["carbon"]["max_updates_per_second"]     = "1000"
 default["graphite"]["dashboard"]["timezone"]                = "America/New_York"
 default["graphite"]["dashboard"]["memcache_hosts"]          = [ "127.0.0.1:11211" ]
+default["graphite"]["dashboard"]["mysql_server"]            = ""
+default["graphite"]["dashboard"]["mysql_port"]              = ""
+default["graphite"]["dashboard"]["mysql_username"]          = ""
+default["graphite"]["dashboard"]["mysql_password"]          = ""
 
 # The default values template
 default["graphite"]["templates"]["default"]["background"]   = "black"
