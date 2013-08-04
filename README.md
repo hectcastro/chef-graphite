@@ -37,10 +37,17 @@ and [Infochimps](https://github.com/infochimps-labs/ironfan-pantry/blob/master/c
 * `node["graphite"]["carbon"]["cache_query_interface"]` - IP for the query
   cache to bind to.
 * `node["graphite"]["carbon"]["log_updates"]` - Enable/disable Carbon logging.
+* `node["graphite"]["carbon"]["max_cache_size"]` - Maximum cache size (in points).
+* `node["graphite"]["carbon"]["max_creates_per_minute"]` - Maximum creates per minute (in points).
+* `node["graphite"]["carbon"]["max_updates_per_second"]` - Maximum updates per second (in points).
 * `node["graphite"]["carbon"]["whisper_dir"]` - Location of whisper data files.
 * `node["graphite"]["dashboard"]["timezone"]` - Default dashboard timezone.
 * `node["graphite"]["dashboard"]["memcache_hosts"]` - Array of IP and port pairs
   for memcached.
+* `node["graphite"]["dashboard"]["mysql_server"]` - MySQL host.
+* `node["graphite"]["dashboard"]["mysql_port"]` - MySQL port.
+* `node["graphite"]["dashboard"]["mysql_username"]` - MySQL username.
+* `node["graphite"]["dashboard"]["mysql_password"]` - MySQL password.
 * `node["graphite"]["templates"]` - Additional template defintions
 * `node["graphite"]["storage_schemas"]` - Array of hashes that define a storage
   schema.  See default attributes for an example.
