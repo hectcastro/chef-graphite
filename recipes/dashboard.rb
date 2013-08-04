@@ -43,7 +43,11 @@ template "#{node['graphite']['home']}/webapp/graphite/local_settings.py" do
     :home           => node["graphite"]["home"],
     :whisper_dir    => node["graphite"]["carbon"]["whisper_dir"],
     :timezone       => node["graphite"]["dashboard"]["timezone"],
-    :memcache_hosts => node["graphite"]["dashboard"]["memcache_hosts"]
+    :memcache_hosts => node["graphite"]["dashboard"]["memcache_hosts"],
+    :mysql_server   => node["graphite"]["dashboard"]["mysql_server"],
+    :mysql_username => node["graphite"]["dashboard"]["mysql_username"],
+    :mysql_password => node["graphite"]["dashboard"]["mysql_password"],
+    :mysql_port     => node["graphite"]["dashboard"]["mysql_port"]
   )
   notifies :restart, "service[apache2]"
 end
