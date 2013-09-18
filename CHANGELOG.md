@@ -1,3 +1,8 @@
+## v0.1.5
+
+* Fixed lost reference to `@home` for RRD storage in `local_settings.py` due
+  to a bad merge.
+
 ## v0.1.4
 
 * Added MySQL configuration attributes for dashboard.
