@@ -30,6 +30,8 @@ and [Infochimps](https://github.com/infochimps-labs/ironfan-pantry/blob/master/c
 * `node["graphite"]["home"]` - Prefix install directory for Graphite.
 * `node["graphite"]["user"]` - User for Graphite and its components.
 * `node["graphite"]["group"]` - Group for Graphite and its components.
+* `node["graphite"]["twisted_version"]` - Attribute to explicitly set a
+  version of Twisted prior to installing Carbon.
 * `node["graphite"]["carbon"]["line_receiver_interface"]` - IP for the line
   receiver to bind to.
 * `node["graphite"]["carbon"]["pickle_receiver_interface"]` - IP for the pickle

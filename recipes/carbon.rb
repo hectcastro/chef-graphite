@@ -1,10 +1,15 @@
-python_pip "carbon" do
-  version node["graphite"]["version"]
-  options %Q{--install-option="--prefix=#{node['graphite']['home']}" --install-option="--install-lib=#{node['graphite']['home']}/lib"}
+python_pip "twisted" do
+  version node["graphite"]["twisted_version"]
   action :install
 end
 
 python_pip "zope.interface" do
+  action :install
+end
+
+python_pip "carbon" do
+  version node["graphite"]["version"]
+  options %Q{--install-option="--prefix=#{node['graphite']['home']}" --install-option="--install-lib=#{node['graphite']['home']}/lib"}
   action :install
 end
 
