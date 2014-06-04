@@ -1,22 +1,23 @@
 ---
-driver_plugin: vagrant
+driver:
+  name: vagrant
+  require_chef_omnibus: true
+  customize:
+    memory: 512
+
+provisioner:
+  name: chef_zero
 
 platforms:
 - name: ubuntu-12.04
-  driver_config:
-    box: opscode-ubuntu-12.04
-    box_url: https://opscode-vm.s3.amazonaws.com/vagrant/opscode_ubuntu-12.04_chef-11.4.4.box
-    require_chef_omnibus: 11.4.4
   run_list:
   - recipe[apt]
-- name: centos-6.4
-  driver_config:
-    box: opscode-centos-6.4
-    box_url: https://opscode-vm.s3.amazonaws.com/vagrant/opscode_centos-6.4_chef-11.4.4.box
-    require_chef_omnibus: 11.4.4
+- name: centos-6.5
   run_list:
-  - recipe[yum::epel]
+  - recipe[yum]
+
 suites:
 - name: default
-  run_list: ["recipe[graphite]"]
+  run_list:
+  - recipe[graphite]
   attributes: {}
