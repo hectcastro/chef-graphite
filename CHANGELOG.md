@@ -1,3 +1,10 @@
+## v0.1.6
+
+* Add `twisted_version` to explicitly set a version of Twisted prior to
+  installing Carbon.
+* Make use of `yum-epel` cookbook to enable EPEL repository.
+* Update Test Kitchen suite.
+
 ## v0.1.5
 
 * Fixed lost reference to `@home` for RRD storage in `local_settings.py` due
