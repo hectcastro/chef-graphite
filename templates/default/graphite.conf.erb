@@ -15,7 +15,7 @@
     SetEnv DJANGO_SETTINGS_MODULE graphite.settings
     PythonDebug Off
     PythonAutoReload Off
-    <% if node[:apache][:version]=='2.4' -%>
+    <% if node['apache']['version']=='2.4' -%>
     Require all granted
     <% end -%>
   </Location>
