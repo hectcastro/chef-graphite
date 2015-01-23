@@ -60,6 +60,7 @@ web_app "graphite" do
   docroot "#{node['graphite']['home']}/webapp"
   server_name "graphite"
   graphite_home node["graphite"]["home"]
+  graphite_port node["graphite"]["port"]
 end
 
 directory "#{node['graphite']['home']}/storage/log" do
