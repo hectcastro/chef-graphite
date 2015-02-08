@@ -1,3 +1,8 @@
+## v0.2.0
+
+* Add attribute to supplying port Graphite Web is bound to.
+* Add support for Apache 2.4.
+
 ## v0.1.6
 
 * Add `twisted_version` to explicitly set a version of Twisted prior to
