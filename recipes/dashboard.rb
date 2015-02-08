@@ -1,11 +1,10 @@
 include_recipe "apache2"
 include_recipe "apache2::mod_python"
+include_recipe "build-essential"
 
 if platform_family?("debian")
   packages = [ "python-cairo-dev", "python-django", "python-django-tagging", "python-memcache", "python-rrdtool" ]
 elsif platform_family?("fedora", "rhel")
-  include_recipe "build-essential"
-
   packages = [ "bitmap", "bitmap-fonts", "Django", "django-tagging", "pycairo", "python-memcached", "rrdtool-python" ]
 
   # bitmap-fonts not available
@@ -61,6 +60,7 @@ web_app "graphite" do
   docroot "#{node['graphite']['home']}/webapp"
   server_name "graphite"
   graphite_home node["graphite"]["home"]
+  graphite_port node["graphite"]["port"]
 end
 
 directory "#{node['graphite']['home']}/storage/log" do

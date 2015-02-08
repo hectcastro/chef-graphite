@@ -1,4 +1,4 @@
-<VirtualHost *:80>
+<VirtualHost *:<%= @params[:graphite_port] %>>
   ServerName <%= @params[:server_name] %>
   DocumentRoot <%= @params[:docroot] %>
   ErrorLog <%= @params[:graphite_home] %>/storage/log/webapp/error.log
@@ -15,6 +15,9 @@
     SetEnv DJANGO_SETTINGS_MODULE graphite.settings
     PythonDebug Off
     PythonAutoReload Off
+    <% if node['apache']['version']=='2.4' -%>
+    Require all granted
+    <% end -%>
   </Location>
 
   <Location "/content/">
