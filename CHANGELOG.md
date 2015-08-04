@@ -1,3 +1,7 @@
+## v0.2.1
+
+* Fix lack of update to metadata on last release.
+
 ## v0.2.0
 
 * Add attribute to supplying port Graphite Web is bound to.
